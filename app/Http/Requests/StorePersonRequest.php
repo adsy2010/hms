@@ -11,7 +11,7 @@ class StorePersonRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class StorePersonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'user_id' => 'sometimes|nullable|exists:users',
+            'hotel_id' => 'required|exists:hotels',
+            'first_name' => 'required|string|min:2',
+            'last_name' => 'required|string|min:2',
+            'email' => 'required|email',
+            'date_of_birth' => 'sometimes|nullable|date',
+            'gender' => 'sometimes|nullable|string',
+            'contact_number' => 'sometimes|nullable|string',
+            'address' => 'sometimes|nullable|json',
+            'postcode' => 'sometimes|nullable|required_with:address|string',
+            'country' => 'sometimes|nullable|string',
         ];
     }
 }

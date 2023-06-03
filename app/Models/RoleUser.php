@@ -9,4 +9,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class RoleUser extends Pivot
 {
     use HasFactory;
+
+    protected $table = 'role_users';
 }

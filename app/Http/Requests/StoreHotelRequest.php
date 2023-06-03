@@ -11,7 +11,7 @@ class StoreHotelRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreHotelRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string',
+            'address' => 'required|array',
+            'postcode' => 'required|string',
+            'country' => 'required|string',
+            'contact_number' => 'required|string',
+            'rating' => 'required|string',
         ];
     }
 }

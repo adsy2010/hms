@@ -9,6 +9,25 @@ class Person extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'hotel_id',
+        'user_id',
+        'first_name',
+        'last_name',
+        'email',
+        'date_of_birth',
+        'gender',
+        'contact_number',
+        'address',
+        'postcode',
+        'country',
+    ];
+
+    protected $casts = [
+        'address' => 'array',
+        'date_of_birth' => 'date'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

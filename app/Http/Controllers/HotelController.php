@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Hotel;
 use App\Http\Requests\StoreHotelRequest;
 use App\Http\Requests\UpdateHotelRequest;
+use Inertia\Inertia;
 
 class HotelController extends Controller
 {
@@ -13,7 +14,9 @@ class HotelController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Settings/Hotels/Index', [
+            'hotels' => Hotel::query()->withCount('rooms')->paginate()
+        ]);
     }
 
     /**
@@ -21,7 +24,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Settings/Hotels/Create');
     }
 
     /**
@@ -29,7 +32,7 @@ class HotelController extends Controller
      */
     public function store(StoreHotelRequest $request)
     {
-        //
+        Hotel::query()->create($request->safe());
     }
 
     /**
@@ -37,7 +40,7 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        //
+        return Inertia::render('Settings/Hotels/Show', ['hotel' => $hotel]);
     }
 
     /**
@@ -45,7 +48,9 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        //
+        return Inertia::render('Settings/Hotels/Edit', [
+            'hotel' => $hotel,
+        ]);
     }
 
     /**

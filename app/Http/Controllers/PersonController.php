@@ -29,7 +29,7 @@ class PersonController extends Controller
      */
     public function store(StorePersonRequest $request)
     {
-        //
+        Person::query()->create($request->safe());
     }
 
     /**
