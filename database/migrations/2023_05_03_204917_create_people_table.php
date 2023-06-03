@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Hotel::class);
+            $table->foreignIdFor(\App\Models\User::class)->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
-            $table->date('date_of_birth');
-            $table->date('gender');
-            $table->string('contact_number');
-            $table->json('address');
-            $table->string('postcode');
-            $table->string('country');
+            $table->date('date_of_birth')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('contact_number')->nullable();
+            $table->json('address')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }
