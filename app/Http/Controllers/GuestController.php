@@ -8,59 +8,38 @@ use App\Http\Requests\UpdateGuestRequest;
 
 class GuestController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function checkIn()
     {
-        //
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function checkOut()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreGuestRequest $request)
+    public function generateBill()
     {
-        //
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Guest $guest)
+    public function payBill()
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Guest $guest)
+    public function makeRequest()
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateGuestRequest $request, Guest $guest)
+    public function fulfillRequest()
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Guest $guest)
+    public function showRequests()
     {
-        //
+
     }
 }

@@ -51,6 +51,10 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
+
+                                <NavLink :href="route('system-settings.index')" :active="route().current('system-settings.index')">
+                                    System Settings
+                                </NavLink>
                             </div>
                         </div>
 
@@ -196,6 +200,9 @@ const logout = () => {
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('system-settings.index')" :active="route().current('system-settings.index')">
+                            System Settings
+                        </ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
@@ -281,6 +288,13 @@ const logout = () => {
                     <slot name="header" />
                 </div>
             </header>
+
+            <!-- Breadcrumbs -->
+            <div v-if="$slots.breadcrumbs" class="pt-4">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <slot name="breadcrumbs" />
+                </div>
+            </div>
 
             <!-- Page Content -->
             <main>

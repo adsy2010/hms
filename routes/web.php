@@ -14,7 +14,7 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+auth()->loginUsingId(1);
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -32,4 +32,13 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::prefix('settings')->group(function() {
+        Route::resource('roles', \App\Http\Controllers\RoleController::class)->only(['index', 'show']);
+        Route::resource('hotels', \App\Http\Controllers\HotelController::class);
+        Route::get('/', function() {
+            return Inertia::render('Settings/Index');
+        })->name('system-settings.index');
+    });
+
 });

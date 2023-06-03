@@ -9,6 +9,15 @@ class Hotel extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'address',
+        'postcode',
+        'country',
+        'contact_number',
+        'rating',
+    ];
+
     protected $casts = [
         'address' => 'json',
     ];
